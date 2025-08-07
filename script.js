@@ -8,9 +8,29 @@ document.addEventListener('DOMContentLoaded', () => {
     const physioList = document.getElementById('physio-list');
     const nameFilter = document.getElementById('name-filter');
     const ratingFilter = document.getElementById('rating-filter');
+    const specialtyFilter = document.getElementById('specialty-filter');
     let userMarker;
     const markerStore = {}; // To store markers by ID
     let userLat, userLng;
+
+    // --- Dynamic Specialty Filter Population ---
+    function populateSpecialtyFilter() {
+        const specialties = new Set();
+        physiotherapists.forEach(p => {
+            p.specialties.forEach(s => specialties.add(s));
+        });
+
+        const sortedSpecialties = [...specialties].sort();
+
+        sortedSpecialties.forEach(s => {
+            const option = document.createElement('option');
+            option.value = s;
+            option.textContent = s;
+            specialtyFilter.appendChild(option);
+        });
+    }
+    populateSpecialtyFilter();
+    // -----------------------------------------
 
     findBtn.addEventListener('click', () => {
         if (navigator.geolocation) {
@@ -22,6 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     nameFilter.addEventListener('input', renderPhysios);
     ratingFilter.addEventListener('change', renderPhysios);
+    specialtyFilter.addEventListener('change', renderPhysios);
 
     function showPosition(position) {
         userLat = position.coords.latitude;
@@ -65,12 +86,14 @@ document.addEventListener('DOMContentLoaded', () => {
     function renderPhysios() {
         const nameFilterValue = nameFilter.value.toLowerCase();
         const ratingFilterValue = parseFloat(ratingFilter.value);
+        const specialtyFilterValue = specialtyFilter.value;
 
         // Filter physiotherapists
         const filteredPhysios = physiotherapists.filter(physio => {
             const nameMatch = physio.name.toLowerCase().includes(nameFilterValue);
             const ratingMatch = physio.rating >= ratingFilterValue;
-            return nameMatch && ratingMatch;
+            const specialtyMatch = specialtyFilterValue === 'all' || physio.specialties.includes(specialtyFilterValue);
+            return nameMatch && ratingMatch && specialtyMatch;
         });
 
         // Sort the filtered list by distance
@@ -96,11 +119,18 @@ document.addEventListener('DOMContentLoaded', () => {
             const directionsUrl = `https://www.google.com/maps/dir/?api=1&origin=${userLat},${userLng}&destination=${physio.location.lat},${physio.location.lng}`;
             li.innerHTML = `
                 <h3>${physio.name}</h3>
-                <p>${physio.address}</p>
+                ${physio.hospital ? `<div class="hospital-info">🏥 ${physio.hospital}</div>` : ''}
+                <p class="address">${physio.address}</p>
+                <div class="specialties">
+                    ${physio.specialties.map(spec => `<span class="specialty-tag">${spec}</span>`).join('')}
+                </div>
                 <p>Contact: ${physio.contact}</p>
                 <p>Rating: ${physio.rating} / 5</p>
                 <p>Distance: ${physio.distance.toFixed(2)} km</p>
-                <a href="${directionsUrl}" target="_blank">Get Directions</a>
+                <div class="links">
+                    <a href="${directionsUrl}" target="_blank" class="btn-link">Get Directions</a>
+                    <a href="tel:${physio.contact}" class="btn-link call-btn">Call Now</a>
+                </div>
             `;
             physioList.appendChild(li);
 

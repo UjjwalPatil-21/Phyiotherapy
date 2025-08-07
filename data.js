@@ -1,44 +1,746 @@
 const physiotherapists = [
     {
-        name: "Dr. Priya Sharma",
-        location: { lat: 19.0760, lng: 72.8777 }, // Central Mumbai
-        address: "101, Linking Road, Bandra West, Mumbai",
-        contact: "987-654-3210",
-        rating: 4.9
+        "name": "Dr. Ira Shah",
+        "location": {
+            "lat": 18.9054,
+            "lng": 72.8534
+        },
+        "address": "319, Colaba East, Mumbai",
+        "contact": "996-949-1223",
+        "rating": 4.5,
+        "specialties": [
+            "Cardiopulmonary",
+            "Pediatric",
+            "Sports Injury"
+        ],
+        "hospital": null
     },
     {
-        name: "Dr. Rohan Verma",
-        location: { lat: 19.1197, lng: 72.8464 }, // Andheri
-        address: "202, SV Road, Andheri West, Mumbai",
-        contact: "876-543-2109",
-        rating: 4.7
+        "name": "Dr. Vivaan Patil",
+        "location": {
+            "lat": 19.1114,
+            "lng": 72.8192
+        },
+        "address": "305, Juhu West, Mumbai",
+        "contact": "944-591-9762",
+        "rating": 4.3,
+        "specialties": [
+            "Neurological",
+            "Sports Injury"
+        ],
+        "hospital": "Fortis Hospital"
     },
     {
-        name: "Dr. Anjali Mehta",
-        location: { lat: 18.9220, lng: 72.8311 }, // Colaba
-        address: "303, Colaba Causeway, Colaba, Mumbai",
-        contact: "765-432-1098",
-        rating: 4.8
+        "name": "Dr. Diya Chopra",
+        "location": {
+            "lat": 18.9333,
+            "lng": 72.8261
+        },
+        "address": "434, Colaba East, Mumbai",
+        "contact": "990-545-6896",
+        "rating": 4.5,
+        "specialties": [
+            "Cardiopulmonary",
+            "Geriatric"
+        ],
+        "hospital": "Saifee Hospital"
     },
     {
-        name: "Dr. Sameer Khan",
-        location: { lat: 19.0213, lng: 72.8424 }, // Dadar
-        address: "404, NC Kelkar Road, Dadar West, Mumbai",
-        contact: "654-321-0987",
-        rating: 4.6
+        "name": "Dr. Siya Mehta",
+        "location": {
+            "lat": 18.9337,
+            "lng": 72.8383
+        },
+        "address": "220, Colaba East, Mumbai",
+        "contact": "942-800-3066",
+        "rating": 4.6,
+        "specialties": [
+            "Orthopedic",
+            "Neurological",
+            "Geriatric"
+        ],
+        "hospital": null
     },
     {
-        name: "Dr. Sunita Patil",
-        location: { lat: 19.2288, lng: 72.8540 }, // Borivali
-        address: "505, Factory Lane, Borivali West, Mumbai",
-        contact: "543-210-9876",
-        rating: 4.5
+        "name": "Dr. Anaya Reddy",
+        "location": {
+            "lat": 19.1209,
+            "lng": 72.8451
+        },
+        "address": "967, Andheri East, Mumbai",
+        "contact": "937-458-3171",
+        "rating": 4.2,
+        "specialties": [
+            "Cardiopulmonary"
+        ],
+        "hospital": null
     },
     {
-        name: "Dr. Vikram Singh",
-        location: { lat: 19.0596, lng: 72.8877 }, // Kurla
-        address: "606, LBS Marg, Kurla West, Mumbai",
-        contact: "432-109-8765",
-        rating: 4.4
+        "name": "Dr. Reyansh Khan",
+        "location": {
+            "lat": 19.0384,
+            "lng": 72.8384
+        },
+        "address": "493, Dadar West, Mumbai",
+        "contact": "982-126-2756",
+        "rating": 4.7,
+        "specialties": [
+            "Cardiopulmonary",
+            "Neurological"
+        ],
+        "hospital": "Jaslok Hospital"
+    },
+    {
+        "name": "Dr. Ira Gupta",
+        "location": {
+            "lat": 19.1432,
+            "lng": 72.9297
+        },
+        "address": "430, Powai West, Mumbai",
+        "contact": "974-123-6603",
+        "rating": 4.4,
+        "specialties": [
+            "Cardiopulmonary"
+        ],
+        "hospital": "Breach Candy Hospital"
+    },
+    {
+        "name": "Dr. Aarav Kapoor",
+        "location": {
+            "lat": 19.1103,
+            "lng": 72.8344
+        },
+        "address": "353, Andheri East, Mumbai",
+        "contact": "939-656-5939",
+        "rating": 4.5,
+        "specialties": [
+            "Cardiopulmonary",
+            "Neurological"
+        ],
+        "hospital": "Hiranandani Hospital"
+    },
+    {
+        "name": "Dr. Anaya Gupta",
+        "location": {
+            "lat": 19.1008,
+            "lng": 72.8292
+        },
+        "address": "776, Andheri East, Mumbai",
+        "contact": "929-784-2612",
+        "rating": 5.0,
+        "specialties": [
+            "Geriatric"
+        ],
+        "hospital": null
+    },
+    {
+        "name": "Dr. Krishna Desai",
+        "location": {
+            "lat": 19.1302,
+            "lng": 72.8508
+        },
+        "address": "491, Andheri West, Mumbai",
+        "contact": "959-978-1318",
+        "rating": 4.8,
+        "specialties": [
+            "Sports Injury"
+        ],
+        "hospital": null
+    },
+    {
+        "name": "Dr. Ira Patil",
+        "location": {
+            "lat": 19.1059,
+            "lng": 72.835
+        },
+        "address": "124, Andheri West, Mumbai",
+        "contact": "940-734-1642",
+        "rating": 4.8,
+        "specialties": [
+            "Orthopedic"
+        ],
+        "hospital": "Breach Candy Hospital"
+    },
+    {
+        "name": "Dr. Ishaan Reddy",
+        "location": {
+            "lat": 19.0462,
+            "lng": 72.9093
+        },
+        "address": "100, Kurla East, Mumbai",
+        "contact": "957-789-3730",
+        "rating": 4.7,
+        "specialties": [
+            "Cardiopulmonary",
+            "Orthopedic"
+        ],
+        "hospital": "Breach Candy Hospital"
+    },
+    {
+        "name": "Dr. Giana Desai",
+        "location": {
+            "lat": 19.1291,
+            "lng": 72.8144
+        },
+        "address": "777, Juhu West, Mumbai",
+        "contact": "935-495-8245",
+        "rating": 4.6,
+        "specialties": [
+            "Neurological",
+            "Sports Injury"
+        ],
+        "hospital": null
+    },
+    {
+        "name": "Dr. Krishna Khan",
+        "location": {
+            "lat": 19.1031,
+            "lng": 72.8331
+        },
+        "address": "563, Andheri East, Mumbai",
+        "contact": "948-334-9078",
+        "rating": 4.5,
+        "specialties": [
+            "Pediatric",
+            "Orthopedic"
+        ],
+        "hospital": null
+    },
+    {
+        "name": "Dr. Aarav Sharma",
+        "location": {
+            "lat": 19.0556,
+            "lng": 72.8804
+        },
+        "address": "608, Kurla East, Mumbai",
+        "contact": "921-757-1982",
+        "rating": 4.8,
+        "specialties": [
+            "Women's Health",
+            "Geriatric",
+            "Pediatric"
+        ],
+        "hospital": null
+    },
+    {
+        "name": "Dr. Aditya Joshi",
+        "location": {
+            "lat": 19.0625,
+            "lng": 72.868
+        },
+        "address": "384, Kurla East, Mumbai",
+        "contact": "929-891-6994",
+        "rating": 4.8,
+        "specialties": [
+            "Sports Injury"
+        ],
+        "hospital": null
+    },
+    {
+        "name": "Dr. Saanvi Kumar",
+        "location": {
+            "lat": 19.1357,
+            "lng": 72.8894
+        },
+        "address": "107, Powai West, Mumbai",
+        "contact": "982-399-5743",
+        "rating": 4.4,
+        "specialties": [
+            "Neurological",
+            "Orthopedic",
+            "Sports Injury"
+        ],
+        "hospital": "Lilavati Hospital"
+    },
+    {
+        "name": "Dr. Arjun Sharma",
+        "location": {
+            "lat": 19.0828,
+            "lng": 72.8816
+        },
+        "address": "514, Kurla East, Mumbai",
+        "contact": "983-243-7035",
+        "rating": 4.5,
+        "specialties": [
+            "Women's Health",
+            "Pediatric",
+            "Sports Injury"
+        ],
+        "hospital": null
+    },
+    {
+        "name": "Dr. Saanvi Patil",
+        "location": {
+            "lat": 19.1228,
+            "lng": 72.8333
+        },
+        "address": "768, Juhu East, Mumbai",
+        "contact": "923-277-6251",
+        "rating": 4.7,
+        "specialties": [
+            "Neurological"
+        ],
+        "hospital": null
+    },
+    {
+        "name": "Dr. Giana Patil",
+        "location": {
+            "lat": 19.0787,
+            "lng": 72.8624
+        },
+        "address": "626, Bandra West, Mumbai",
+        "contact": "967-250-6217",
+        "rating": 4.7,
+        "specialties": [
+            "Orthopedic",
+            "Neurological",
+            "Sports Injury"
+        ],
+        "hospital": null
+    },
+    {
+        "name": "Dr. Aarav Kumar",
+        "location": {
+            "lat": 19.2169,
+            "lng": 72.9893
+        },
+        "address": "727, Thane West, Mumbai",
+        "contact": "958-349-9456",
+        "rating": 4.8,
+        "specialties": [
+            "Orthopedic"
+        ],
+        "hospital": "Fortis Hospital"
+    },
+    {
+        "name": "Dr. Riya Verma",
+        "location": {
+            "lat": 19.2222,
+            "lng": 72.9907
+        },
+        "address": "155, Thane West, Mumbai",
+        "contact": "978-980-1533",
+        "rating": 5.0,
+        "specialties": [
+            "Neurological",
+            "Orthopedic"
+        ],
+        "hospital": null
+    },
+    {
+        "name": "Dr. Kiara Reddy",
+        "location": {
+            "lat": 19.0736,
+            "lng": 72.8964
+        },
+        "address": "339, Kurla East, Mumbai",
+        "contact": "990-221-6796",
+        "rating": 4.3,
+        "specialties": [
+            "Cardiopulmonary"
+        ],
+        "hospital": null
+    },
+    {
+        "name": "Dr. Aarav Reddy",
+        "location": {
+            "lat": 19.1337,
+            "lng": 72.8878
+        },
+        "address": "557, Powai West, Mumbai",
+        "contact": "963-107-2055",
+        "rating": 4.6,
+        "specialties": [
+            "Sports Injury",
+            "Women's Health"
+        ],
+        "hospital": null
+    },
+    {
+        "name": "Dr. Vihaan Joshi",
+        "location": {
+            "lat": 19.0958,
+            "lng": 72.8921
+        },
+        "address": "506, Powai East, Mumbai",
+        "contact": "999-891-7297",
+        "rating": 4.6,
+        "specialties": [
+            "Orthopedic",
+            "Geriatric"
+        ],
+        "hospital": null
+    },
+    {
+        "name": "Dr. Krishna Naidu",
+        "location": {
+            "lat": 19.0985,
+            "lng": 72.8427
+        },
+        "address": "936, Andheri West, Mumbai",
+        "contact": "981-253-6528",
+        "rating": 4.3,
+        "specialties": [
+            "Geriatric"
+        ],
+        "hospital": "Lilavati Hospital"
+    },
+    {
+        "name": "Dr. Riya Naidu",
+        "location": {
+            "lat": 19.0869,
+            "lng": 72.8362
+        },
+        "address": "350, Juhu West, Mumbai",
+        "contact": "952-186-6660",
+        "rating": 4.5,
+        "specialties": [
+            "Sports Injury"
+        ],
+        "hospital": null
+    },
+    {
+        "name": "Dr. Saanvi Verma",
+        "location": {
+            "lat": 19.0425,
+            "lng": 72.9039
+        },
+        "address": "567, Kurla East, Mumbai",
+        "contact": "948-445-7950",
+        "rating": 4.6,
+        "specialties": [
+            "Cardiopulmonary",
+            "Women's Health",
+            "Neurological"
+        ],
+        "hospital": "Lilavati Hospital"
+    },
+    {
+        "name": "Dr. Riya Desai",
+        "location": {
+            "lat": 19.2368,
+            "lng": 72.8554
+        },
+        "address": "580, Borivali East, Mumbai",
+        "contact": "930-312-7580",
+        "rating": 4.4,
+        "specialties": [
+            "Women's Health",
+            "Geriatric",
+            "Neurological"
+        ],
+        "hospital": "Breach Candy Hospital"
+    },
+    {
+        "name": "Dr. Arjun Reddy",
+        "location": {
+            "lat": 19.0975,
+            "lng": 72.8628
+        },
+        "address": "426, Andheri West, Mumbai",
+        "contact": "945-961-6212",
+        "rating": 5.0,
+        "specialties": [
+            "Women's Health",
+            "Cardiopulmonary"
+        ],
+        "hospital": null
+    },
+    {
+        "name": "Dr. Ira Verma",
+        "location": {
+            "lat": 19.0661,
+            "lng": 72.8953
+        },
+        "address": "900, Kurla East, Mumbai",
+        "contact": "960-861-3228",
+        "rating": 5.0,
+        "specialties": [
+            "Neurological",
+            "Women's Health",
+            "Geriatric"
+        ],
+        "hospital": "Breach Candy Hospital"
+    },
+    {
+        "name": "Dr. Siya Sharma",
+        "location": {
+            "lat": 19.0972,
+            "lng": 72.8474
+        },
+        "address": "449, Juhu East, Mumbai",
+        "contact": "992-763-7977",
+        "rating": 4.3,
+        "specialties": [
+            "Cardiopulmonary",
+            "Pediatric"
+        ],
+        "hospital": null
+    },
+    {
+        "name": "Dr. Ira Mehta",
+        "location": {
+            "lat": 19.0231,
+            "lng": 72.8463
+        },
+        "address": "915, Dadar West, Mumbai",
+        "contact": "970-377-5253",
+        "rating": 4.9,
+        "specialties": [
+            "Women's Health"
+        ],
+        "hospital": null
+    },
+    {
+        "name": "Dr. Ayaan Kumar",
+        "location": {
+            "lat": 19.042,
+            "lng": 72.8912
+        },
+        "address": "751, Kurla East, Mumbai",
+        "contact": "987-890-6667",
+        "rating": 4.6,
+        "specialties": [
+            "Women's Health",
+            "Pediatric"
+        ],
+        "hospital": "Breach Candy Hospital"
+    },
+    {
+        "name": "Dr. Aarav Chopra",
+        "location": {
+            "lat": 19.055,
+            "lng": 72.8159
+        },
+        "address": "890, Bandra West, Mumbai",
+        "contact": "934-542-1683",
+        "rating": 4.2,
+        "specialties": [
+            "Pediatric"
+        ],
+        "hospital": "Breach Candy Hospital"
+    },
+    {
+        "name": "Dr. Myra Reddy",
+        "location": {
+            "lat": 19.2383,
+            "lng": 72.9763
+        },
+        "address": "380, Thane West, Mumbai",
+        "contact": "916-432-9731",
+        "rating": 4.3,
+        "specialties": [
+            "Women's Health"
+        ],
+        "hospital": null
+    },
+    {
+        "name": "Dr. Aadhya Gupta",
+        "location": {
+            "lat": 19.0963,
+            "lng": 72.923
+        },
+        "address": "778, Powai East, Mumbai",
+        "contact": "964-255-5835",
+        "rating": 4.5,
+        "specialties": [
+            "Orthopedic"
+        ],
+        "hospital": "Lilavati Hospital"
+    },
+    {
+        "name": "Dr. Krishna Malhotra",
+        "location": {
+            "lat": 19.1972,
+            "lng": 72.9691
+        },
+        "address": "116, Thane West, Mumbai",
+        "contact": "957-198-5860",
+        "rating": 4.2,
+        "specialties": [
+            "Sports Injury",
+            "Neurological"
+        ],
+        "hospital": "Hiranandani Hospital"
+    },
+    {
+        "name": "Dr. Myra Singh",
+        "location": {
+            "lat": 19.2327,
+            "lng": 72.9642
+        },
+        "address": "297, Thane East, Mumbai",
+        "contact": "916-908-2587",
+        "rating": 4.9,
+        "specialties": [
+            "Cardiopulmonary",
+            "Geriatric",
+            "Pediatric"
+        ],
+        "hospital": "Breach Candy Hospital"
+    },
+    {
+        "name": "Dr. Vihaan Khan",
+        "location": {
+            "lat": 19.0328,
+            "lng": 72.8399
+        },
+        "address": "727, Dadar East, Mumbai",
+        "contact": "976-921-8098",
+        "rating": 4.7,
+        "specialties": [
+            "Geriatric"
+        ],
+        "hospital": "Hiranandani Hospital"
+    },
+    {
+        "name": "Dr. Siya Kapoor",
+        "location": {
+            "lat": 19.0431,
+            "lng": 72.8523
+        },
+        "address": "437, Bandra West, Mumbai",
+        "contact": "973-336-7292",
+        "rating": 4.3,
+        "specialties": [
+            "Sports Injury",
+            "Neurological",
+            "Geriatric"
+        ],
+        "hospital": "Hiranandani Hospital"
+    },
+    {
+        "name": "Dr. Siya Naidu",
+        "location": {
+            "lat": 19.2085,
+            "lng": 72.9731
+        },
+        "address": "986, Thane East, Mumbai",
+        "contact": "911-630-9990",
+        "rating": 4.9,
+        "specialties": [
+            "Pediatric",
+            "Orthopedic"
+        ],
+        "hospital": "Jaslok Hospital"
+    },
+    {
+        "name": "Dr. Aadhya Shah",
+        "location": {
+            "lat": 18.9412,
+            "lng": 72.821
+        },
+        "address": "597, Colaba East, Mumbai",
+        "contact": "992-130-3368",
+        "rating": 4.6,
+        "specialties": [
+            "Orthopedic",
+            "Geriatric"
+        ],
+        "hospital": "Lilavati Hospital"
+    },
+    {
+        "name": "Dr. Aadhya Shah",
+        "location": {
+            "lat": 19.1424,
+            "lng": 72.8372
+        },
+        "address": "759, Andheri West, Mumbai",
+        "contact": "911-213-6376",
+        "rating": 4.4,
+        "specialties": [
+            "Cardiopulmonary",
+            "Orthopedic",
+            "Women's Health"
+        ],
+        "hospital": "Breach Candy Hospital"
+    },
+    {
+        "name": "Dr. Arjun Malhotra",
+        "location": {
+            "lat": 19.0204,
+            "lng": 72.8565
+        },
+        "address": "164, Dadar West, Mumbai",
+        "contact": "992-190-9384",
+        "rating": 4.7,
+        "specialties": [
+            "Orthopedic",
+            "Pediatric"
+        ],
+        "hospital": null
+    },
+    {
+        "name": "Dr. Myra Reddy",
+        "location": {
+            "lat": 18.9083,
+            "lng": 72.8281
+        },
+        "address": "795, Colaba East, Mumbai",
+        "contact": "920-935-2095",
+        "rating": 4.4,
+        "specialties": [
+            "Sports Injury",
+            "Geriatric"
+        ],
+        "hospital": "Hiranandani Hospital"
+    },
+    {
+        "name": "Dr. Arjun Chopra",
+        "location": {
+            "lat": 19.0625,
+            "lng": 72.8745
+        },
+        "address": "728, Kurla East, Mumbai",
+        "contact": "979-836-1663",
+        "rating": 4.4,
+        "specialties": [
+            "Women's Health"
+        ],
+        "hospital": null
+    },
+    {
+        "name": "Dr. Krishna Malhotra",
+        "location": {
+            "lat": 19.2176,
+            "lng": 72.8358
+        },
+        "address": "435, Borivali West, Mumbai",
+        "contact": "970-106-7759",
+        "rating": 4.2,
+        "specialties": [
+            "Pediatric",
+            "Sports Injury"
+        ],
+        "hospital": "Saifee Hospital"
+    },
+    {
+        "name": "Dr. Ira Singh",
+        "location": {
+            "lat": 19.2413,
+            "lng": 72.8586
+        },
+        "address": "341, Borivali East, Mumbai",
+        "contact": "958-485-9672",
+        "rating": 4.3,
+        "specialties": [
+            "Geriatric"
+        ],
+        "hospital": "Kokilaben Hospital"
+    },
+    {
+        "name": "Dr. Aadhya Kumar",
+        "location": {
+            "lat": 19.1161,
+            "lng": 72.8568
+        },
+        "address": "104, Andheri West, Mumbai",
+        "contact": "978-466-3474",
+        "rating": 4.3,
+        "specialties": [
+            "Neurological",
+            "Pediatric"
+        ],
+        "hospital": null
     }
 ];

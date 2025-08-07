@@ -149,10 +149,62 @@ main {
     color: #555;
 }
 
-#physio-list a {
+#physio-list .links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.btn-link {
     display: inline-block;
-    margin-top: 0.75rem;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    color: white;
     font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.btn-link:hover {
+    text-decoration: none;
+}
+
+.links a:first-child {
+    background-color: #007bff;
+}
+
+.links a:first-child:hover {
+    background-color: #0056b3;
+}
+
+.call-btn {
+    background-color: #17a2b8;
+}
+
+.call-btn:hover {
+    background-color: #117a8b;
+}
+
+.hospital-info {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-bottom: 0.5rem;
+}
+
+.specialties {
+    margin: 0.75rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.specialty-tag {
+    background-color: #e9ecef;
+    color: #495057;
+    padding: 0.25rem 0.6rem;
+    border-radius: 1rem;
+    font-size: 0.8rem;
+    font-weight: 500;
 }
 
 /* Responsive Design */
