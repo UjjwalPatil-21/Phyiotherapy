@@ -17,6 +17,18 @@
         </div>
         <div id="sidebar">
             <button id="find-btn">Find Physiotherapists Nearby</button>
+            <div id="filter-controls">
+                <input type="text" id="name-filter" placeholder="Filter by name...">
+                <select id="rating-filter">
+                    <option value="0">All Ratings</option>
+                    <option value="4.8">4.8+ Stars</option>
+                    <option value="4.5">4.5+ Stars</option>
+                    <option value="4">4+ Stars</option>
+                    <option value="3">3+ Stars</option>
+                    <option value="2">2+ Stars</option>
+                    <option value="1">1+ Star</option>
+                </select>
+            </div>
             <h2>Nearby Physiotherapists</h2>
             <ul id="physio-list"></ul>
         </div>

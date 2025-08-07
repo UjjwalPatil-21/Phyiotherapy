@@ -89,6 +89,28 @@ main {
     padding-bottom: 0.5rem;
 }
 
+/* Filter Controls */
+#filter-controls {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+#name-filter, #rating-filter {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#name-filter:focus, #rating-filter:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
 /* Physiotherapist List */
 #physio-list {
     list-style: none;
@@ -100,11 +122,20 @@ main {
     background: #fff;
     padding: 1rem;
     border-bottom: 1px solid #ddd;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
 }
 
 #physio-list li:hover {
     background-color: #f8f9fa;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+#physio-list li.highlight {
+    background-color: #e0f7ff;
+    transition: background-color 0.3s ease-in-out;
 }
 
 #physio-list h3 {

@@ -1,12 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const map = L.map('map').setView([37.7749, -122.4194], 13); // Default to San Francisco
+    const map = L.map('map').setView([19.0760, 72.8777], 11); // Default to Mumbai
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
 
     const findBtn = document.getElementById('find-btn');
     const physioList = document.getElementById('physio-list');
+    const nameFilter = document.getElementById('name-filter');
+    const ratingFilter = document.getElementById('rating-filter');
     let userMarker;
+    const markerStore = {}; // To store markers by ID
+    let userLat, userLng;
 
     findBtn.addEventListener('click', () => {
         if (navigator.geolocation) {
@@ -16,9 +20,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    nameFilter.addEventListener('input', renderPhysios);
+    ratingFilter.addEventListener('change', renderPhysios);
+
     function showPosition(position) {
-        const userLat = position.coords.latitude;
-        const userLng = position.coords.longitude;
+        userLat = position.coords.latitude;
+        userLng = position.coords.longitude;
 
         map.setView([userLat, userLng], 13);
 
@@ -29,7 +36,13 @@ document.addEventListener('DOMContentLoaded', () => {
             .bindPopup('Your Location')
             .openPopup();
 
-        displayNearbyPhysios(userLat, userLng);
+        // Calculate distances once
+        physiotherapists.forEach((physio, index) => {
+            physio.distance = haversineDistance(userLat, userLng, physio.location.lat, physio.location.lng);
+            physio.id = `physio-${index}`;
+        });
+
+        renderPhysios();
     }
 
     function showError(error) {
@@ -49,32 +62,37 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    function displayNearbyPhysios(userLat, userLng) {
+    function renderPhysios() {
+        const nameFilterValue = nameFilter.value.toLowerCase();
+        const ratingFilterValue = parseFloat(ratingFilter.value);
+
+        // Filter physiotherapists
+        const filteredPhysios = physiotherapists.filter(physio => {
+            const nameMatch = physio.name.toLowerCase().includes(nameFilterValue);
+            const ratingMatch = physio.rating >= ratingFilterValue;
+            return nameMatch && ratingMatch;
+        });
+
+        // Sort the filtered list by distance
+        const sortedPhysios = filteredPhysios.sort((a, b) => a.distance - b.distance);
+
         physioList.innerHTML = ''; // Clear existing list
 
-        // Clear existing markers
-        map.eachLayer((layer) => {
-            if (layer instanceof L.Marker && layer !== userMarker) {
-                map.removeLayer(layer);
-            }
-        });
+        // Clear existing markers from the map and the store
+        Object.values(markerStore).forEach(marker => map.removeLayer(marker));
+        for (const key in markerStore) {
+            delete markerStore[key];
+        }
 
-        const nearbyPhysios = physiotherapists.filter(physio => {
-            const distance = haversineDistance(userLat, userLng, physio.location.lat, physio.location.lng);
-            physio.distance = distance;
-            return distance <= 5;
-        });
-
-        nearbyPhysios.sort((a, b) => a.distance - b.distance);
-
-        if (nearbyPhysios.length === 0) {
-            physioList.innerHTML = '<li>No physiotherapists found within a 5km radius.</li>';
+        if (sortedPhysios.length === 0) {
+            physioList.innerHTML = '<li>No matching physiotherapists found.</li>';
             return;
         }
 
-        nearbyPhysios.forEach(physio => {
+        sortedPhysios.forEach(physio => {
             // Add to list
             const li = document.createElement('li');
+            li.id = physio.id;
             const directionsUrl = `https://www.google.com/maps/dir/?api=1&origin=${userLat},${userLng}&destination=${physio.location.lat},${physio.location.lng}`;
             li.innerHTML = `
                 <h3>${physio.name}</h3>
@@ -86,9 +104,22 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
             physioList.appendChild(li);
 
-            // Add marker to map
-            L.marker([physio.location.lat, physio.location.lng]).addTo(map)
+            // Add marker to map and store it
+            const marker = L.marker([physio.location.lat, physio.location.lng]).addTo(map)
                 .bindPopup(`<b>${physio.name}</b><br>${physio.address}`);
+
+            markerStore[physio.id] = marker;
+
+            // --- Interactivity ---
+            li.addEventListener('mouseover', () => marker.openPopup());
+            li.addEventListener('mouseout', () => marker.closePopup());
+
+            marker.on('click', () => {
+                document.querySelectorAll('#physio-list li').forEach(item => item.classList.remove('highlight'));
+                li.classList.add('highlight');
+                li.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                setTimeout(() => li.classList.remove('highlight'), 2000);
+            });
         });
     }
 
