@@ -1,0 +1,147 @@
+/* General Styles */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #f4f4f9;
+}
+
+h1, h2, h3 {
+    margin-top: 0;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Header */
+header {
+    background: #007bff;
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+/* Main Content Layout */
+main {
+    display: flex;
+    flex: 1;
+    overflow: hidden; /* Prevent body scroll */
+}
+
+#map-container {
+    flex-grow: 1;
+}
+
+#map {
+    height: 100%;
+    width: 100%;
+}
+
+#sidebar {
+    width: 380px;
+    background: #ffffff;
+    padding: 1.5rem;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+#find-btn {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: white;
+    background-color: #28a745;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 1.5rem;
+    transition: background-color 0.3s ease;
+}
+
+#find-btn:hover {
+    background-color: #218838;
+}
+
+#sidebar h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 0.5rem;
+}
+
+/* Physiotherapist List */
+#physio-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#physio-list li {
+    background: #fff;
+    padding: 1rem;
+    border-bottom: 1px solid #ddd;
+    transition: background-color 0.3s ease;
+}
+
+#physio-list li:hover {
+    background-color: #f8f9fa;
+}
+
+#physio-list h3 {
+    margin: 0 0 0.5rem;
+    color: #0056b3;
+}
+
+#physio-list p {
+    margin: 0.25rem 0;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+#physio-list a {
+    display: inline-block;
+    margin-top: 0.75rem;
+    font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+    }
+
+    #sidebar {
+        width: 100%;
+        height: 50vh; /* Give sidebar a defined height */
+        box-shadow: none;
+        border-top: 1px solid #ddd;
+    }
+
+    #map-container {
+       height: 50vh; /* Give map a defined height */
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+}
