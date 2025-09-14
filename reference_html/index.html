@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find a Physiotherapist</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Find a Physiotherapist Near You</h1>
+    </header>
+    <main>
+        <div id="map-container">
+            <div id="map"></div>
+        </div>
+        <div id="sidebar">
+            <button id="find-btn">Find Physiotherapists Nearby</button>
+            <div id="filter-controls">
+                <input type="text" id="name-filter" placeholder="Filter by name...">
+                <select id="rating-filter">
+                    <option value="0">All Ratings</option>
+                    <option value="4.8">4.8+ Stars</option>
+                    <option value="4.5">4.5+ Stars</option>
+                    <option value="4">4+ Stars</option>
+                    <option value="3">3+ Stars</option>
+                    <option value="2">2+ Stars</option>
+                    <option value="1">1+ Star</option>
+                </select>
+                <select id="specialty-filter">
+                    <option value="all">All Specialties</option>
+                </select>
+            </div>
+            <h2>Nearby Physiotherapists</h2>
+            <ul id="physio-list"></ul>
+        </div>
+    </main>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

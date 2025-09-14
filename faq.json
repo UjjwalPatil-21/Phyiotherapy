@@ -1,0 +1,50 @@
+{
+  "q1": {
+    "question": "What are some common causes of neck pain?",
+    "answer": "Common causes include poor posture (like 'text neck'), sleeping in an awkward position, repetitive neck motion, or injuries from falls or accidents. Stress can also be a contributing factor."
+  },
+  "q2": {
+    "question": "Can you suggest a simple stretch for lower back pain?",
+    "answer": "A gentle stretch is the 'Knee-to-Chest' stretch. Lie on your back, bend your knees, and keep your feet flat on the floor. Gently pull one knee up to your chest, holding for 15-30 seconds. Repeat with the other leg."
+  },
+  "q3": {
+    "question": "What is the difference between a sprain and a strain?",
+    "answer": "A sprain is the stretching or tearing of ligaments (which connect bones), while a strain is the stretching or tearing of muscles or tendons (which connect muscle to bone)."
+  },
+  "q4": {
+    "question": "How can I improve my posture while working at a desk?",
+    "answer": "Keep your screen at eye level, your back straight against the chair, feet flat on the floor, and elbows at a 90-degree angle. Take short breaks every 30 minutes to stand and stretch."
+  },
+  "q5": {
+    "question": "What is R.I.C.E. therapy?",
+    "answer": "R.I.C.E. stands for Rest, Ice, Compression, and Elevation. It's a first-aid treatment for soft tissue injuries like sprains and strains to reduce swelling and pain."
+  },
+  "q6": {
+    "question": "When should I use ice versus heat for an injury?",
+    "answer": "Use ice for the first 24-48 hours after an acute injury to reduce swelling and numb pain. Use heat for chronic muscle pain or stiffness to relax muscles and improve circulation. Do not apply directly to the skin."
+  },
+  "q7": {
+    "question": "What are some good exercises for knee pain?",
+    "answer": "Low-impact exercises are best. Consider straight leg raises, hamstring curls, and wall squats. Always consult a physiotherapist for exercises tailored to your specific condition."
+  },
+  "q8": {
+    "question": "How can I prevent sports injuries?",
+    "answer": "Proper warm-ups and cool-downs are key. Also, use the correct equipment, learn proper technique, and don't push yourself too hard too fast. Listen to your body."
+  },
+  "q9": {
+    "question": "What is physiotherapy?",
+    "answer": "Physiotherapy is a healthcare profession that helps people with physical problems caused by illness, injury, or aging. It uses movement, exercise, manual therapy, and advice to help restore function and reduce pain."
+  },
+  "q10": {
+    "question": "Do I need a doctor's referral to see a physiotherapist?",
+    "answer": "In many places, you do not need a referral to see a physiotherapist. However, some insurance plans may require one for coverage, so it's always good to check."
+  },
+  "q11": {
+    "question": "What is carpal tunnel syndrome?",
+    "answer": "Carpal tunnel syndrome is a condition that causes numbness, tingling, or weakness in your hand. It happens when there is pressure on the median nerve, which runs through a passage in your wrist called the carpal tunnel."
+  },
+  "q12": {
+    "question": "How long does a typical physiotherapy session last?",
+    "answer": "A typical session lasts between 30 to 60 minutes, depending on your condition and the treatment plan designed by your physiotherapist."
+  }
+}
